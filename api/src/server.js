@@ -1,9 +1,11 @@
 require('dotenv').config({path: ('apiConfig.env')});
-const express =  require('express');
-const cors= require('cors');
-const app = express();
+import express from 'express';
+import cors from 'cors';
+require('./config/database');
 
 const port = process.env.SERVER_PORT;
+
+const app = express();
 
 app.use(cors());
 
