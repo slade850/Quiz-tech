@@ -1,0 +1,33 @@
+{
+  "name": "Quiz-tech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slade850/Quiz-tech.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slade850/Quiz-tech/issues"
+  },
+  "homepage": "https://github.com/slade850/Quiz-tech#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6"
+  },
+  "devDependencies": {
+    "sass": "^1.26.9"
+  }
+}
