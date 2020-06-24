@@ -1,5 +1,6 @@
 api/node_modules/
 api/apiConfig.env
+api/src/config/
 node_modules/
 dist/
 .cache/
