@@ -4,3 +4,4 @@ api/src/config/
 node_modules/
 dist/
 .cache/
+api/config.json
