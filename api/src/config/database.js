@@ -5,11 +5,11 @@ const connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
-    database: process.env.DB_BASE
+    database: "quiz-tech"
 });
 
 //Connecting to database
-connection.connect((err) => {
+connection.connect((err) => {  
     if (err) {
         console.error("error connecting: " + err.stack);
         return;
