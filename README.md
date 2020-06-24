@@ -6,7 +6,7 @@
 use the sql dump in phpmyadmin or workbench
 
 api
-express.js sever in ES6
+express.js server in ES6
 `npm run start:dev`
 
 Front in React.js
