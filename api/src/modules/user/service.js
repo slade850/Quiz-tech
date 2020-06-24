@@ -34,11 +34,16 @@ const userService = {
         let token = jwt.sign({ id: result.id, pseudo: result.pseudo, role:result.role }, apiConfig.SECRET_TOKEN, {expiresIn : 3600})
         resolve({status: 200, message : 'user is logged in', token : token})
       }
-      reject({ status: 401, message: "wrong password entered"})
-    })
-    .catch( err => reject( {status: 401, message: 'login error, reverify your information'}))
-  })
- }
-}
+          reject({ status: 401, message: "wrong password entered" });
+        })
+        .catch((err) =>
+          reject({
+            status: 401,
+            message: "login error, reverify your information",
+          })
+        );
+    });
+  }
+};
 
-export default userService
+export default userService;
