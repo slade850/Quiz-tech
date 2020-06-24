@@ -1,12 +1,13 @@
 import mysql from 'mysql2';
+import apiConfig from '../../apiConfig.json';
 
 const connection = mysql.createConnection({
-    port: process.env.DB_PORT,
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_BASE
-});
+    port: apiConfig.DB_PORT,
+    host: apiConfig.DB_HOST,
+    user: apiConfig.DB_USER,
+    password: apiConfig.DB_PASS,
+    database: apiConfig.DB_BASE
+})
 
 //Connecting to database
 connection.connect((err) => {  
@@ -18,4 +19,6 @@ connection.connect((err) => {
     console.log("connected as id " + connection.threadId);
 });
 
-module.exports = connection;
+connection.query
+
+export default connection;

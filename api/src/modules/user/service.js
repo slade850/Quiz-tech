@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import userQueries from './queries';
 import jwt from 'jsonwebtoken';
+import apiConfig from '../../../apiConfig.json';
 
 
 const userService = {
@@ -30,7 +31,7 @@ const userService = {
     userQueries.login(formLogin)
     .then(result => {
       if (bcrypt.compareSync(password, result.password )) {
-        let token = jwt.sign({ id: result.id, pseudo: result.pseudo, role:result.role }, process.env.SECRET_TOKEN, {expiresIn : 3600})
+        let token = jwt.sign({ id: result.id, pseudo: result.pseudo, role:result.role }, apiConfig.SECRET_TOKEN, {expiresIn : 3600})
         resolve({status: 200, message : 'user is logged in', token : token})
       }
       reject({ status: 401, message: "wrong password entered"})
