@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
-import userQueries from './queries'
+import userQueries from './queries';
+import jwt from 'jsonwebtoken';
 
 
 const userService = {
@@ -19,6 +20,23 @@ const userService = {
     }
     else { reject( {status: 400, message: "unmatched password"})}
    })
+ },
+ login: (body) =>{
+  return new Promise((resolve, reject) => {
+    let { formLogin, password } = body
+    if (typeof formLogin !== 'string' || typeof password !== 'string') {
+      reject({status: 400, message :'please enter a string in all fields'})
+    }
+    userQueries.login(formLogin)
+    .then(result => {
+      if (bcrypt.compareSync(password, result.password )) {
+        let token = jwt.sign({ id: result.id, pseudo: result.pseudo, role:result.role }, process.env.SECRET_TOKEN, {expiresIn : 3600})
+        resolve({status: 200, message : 'user is logged in', token : token})
+      }
+      reject({ status: 401, message: "wrong password entered"})
+    })
+    .catch( err => reject( {status: 401, message: 'login error, reverify your information'}))
+  })
  }
 }
 
