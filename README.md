@@ -13,4 +13,4 @@ Front in React.js
 `npm run start`
 
 
-![diagram](https://github.com/slade850/Quiz-tech/blob/readme/assets/sql_diagram.png?raw=true)
+![diagram](https://github.com/slade850/Quiz-tech/blob/develop/assets/sql_diagram.png?raw=true)
