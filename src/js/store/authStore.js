@@ -10,7 +10,7 @@ export const doLogin = (body) => {
   // token -> SET_AUTH_TOKEN
   // LOGIN FINI
   // LOGIN FAILED
-  return (dispatch) => {
+  return dispatch => {
     dispatch({ type: "DOING_LOGIN" });
 
     return api
