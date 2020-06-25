@@ -1,23 +1,43 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux"
 
 import Header from "./component/header";
 import Home from "./page/home";
 import Theme from "./page/themes";
+import Login from './component/login'
+import Modale from './component/modale'
+
+const clickOutsideModale = event => {
+	if (event.target.id === "OutsideModale")
+		dispatch({ type: "TOGGLE_IS_MODAL_SHOWING" });
+}
+
 const App = () => {
-  return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/themes">
-          <Theme />
-        </Route>
-      </Switch>
-    </Router>
-  );
+	const dispatch = useDispatch()
+	const isModalShowing =  useSelector(state => state.homeStore.isModalShowing)
+
+	const clickOutsideModale = event => {
+		if (event.target.id === 'OutsideModale') dispatch({ type: 'TOGGLE_IS_MODAL_SHOWING' })
+	}
+
+	return (
+		<Router>
+			<Header />
+			{isModalShowing && <Modale clickOutside={clickOutsideModale} />}
+			<Switch>
+				<Route exact path="/">
+					<Home />
+				</Route>
+				<Route path="/themes">
+					<Theme />
+				</Route>
+				<Route path="/login">
+					<Login />
+				</Route>
+			</Switch>
+		</Router>
+	);
 };
 
 export default App;

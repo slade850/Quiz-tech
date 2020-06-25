@@ -12,7 +12,7 @@ const userQueries = {
     });
   },
   login: (userLogin) => {
-    console.log("---------------------userlogin", userLogin);
+    console.log('! LOGIN ERROR - ', userLogin);
     return new Promise((resolve, reject) => {
       let sqlQuery = `SELECT * FROM users WHERE email = "${userLogin}" OR pseudo = "${userLogin}"`;
       db.query(sqlQuery, (err, result) => {
