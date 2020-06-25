@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { getThemes } from "../store/themeStore";
+
+import { Link } from "react-router-dom";
 const Themes = () => {
   const dispatch = useDispatch();
   const themes = useSelector((state) => state.themeStore.theme);
@@ -24,6 +26,9 @@ const Themes = () => {
         return (
           <div key={i}>
             {theme.id} {theme.title}
+            <button className="theme-btn">           <li>
+            <Link to={ `/question/theme/${theme.id}` }>Questions theme {theme.id}</Link>
+          </li></button>
           </div>
         );
       })}

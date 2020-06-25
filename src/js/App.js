@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./component/header";
 import Home from "./page/home";
 import Theme from "./page/themes";
+import Question from "./page/question";
 const App = () => {
   return (
     <Router>
@@ -14,6 +15,9 @@ const App = () => {
         </Route>
         <Route path="/themes">
           <Theme />
+        </Route>
+        <Route path="/question/theme/1">
+          <Question />
         </Route>
       </Switch>
     </Router>
