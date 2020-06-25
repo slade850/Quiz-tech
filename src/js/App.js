@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from "./component/header";
 import Home from "./page/home";
+import Theme from "./page/themes";
 const App = () => {
   return (
     <Router>
@@ -10,6 +11,9 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/themes">
+          <Theme />
         </Route>
       </Switch>
     </Router>

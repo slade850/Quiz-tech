@@ -10,6 +10,9 @@ const Header = () => {
           <li>
             <Link to="/">Home</Link>
           </li>
+          <li>
+            <Link to="/themes">Themes</Link>
+          </li>
         </ul>
       </nav>
     </header>
