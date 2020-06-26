@@ -48,6 +48,7 @@ const userService = {
             resolve({
               status: 200,
               message: "user is logged in",
+              user: result,
               token: token,
             });
           }
