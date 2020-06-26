@@ -14,11 +14,11 @@ const Login = (props) => {
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-//    const displayRegisterModale = () =>
-//        dispatch({
-//            type: "TOGGLE_IS_MODAL_SHOWING",
-//            payload: { type: "register", title: "Register" }
-//    });
+   const displayRegisterModale = () =>
+       dispatch({
+           type: "TOGGLE_IS_MODAL_SHOWING",
+           payload: { type: "register", title: "Register" }
+   });
 
     const handleSubmit = (event) => {
         event.preventDefault();
