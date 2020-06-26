@@ -1,13 +1,13 @@
 import React from "react";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
-import assets from '../../../assets/images/avatar/femme1.png'
+import asset from '../../../assets/images/avatar/femme1.png'
 
 const mockData ={
   userID: "1",
   userPseudo: "Fang",
   userPoints: "100",
-  avatar: "../../../assets/images/avatar/femme1.png"
+  avatar: asset
 }
 
 const Header = () => {
@@ -23,7 +23,7 @@ const Header = () => {
           </li>
         </ul>
         <h2>{ mockData.userPseudo }</h2>
-        <StyledImg2 src={assets} />
+        <StyledImg2 src={mockData.avatar} />
       </StyledNav>
     
     </StyledHeader>
@@ -51,6 +51,7 @@ const StyledImg = styled.img.attrs({
 })`width: 100px;
 height: 100px;
 border: 1px solid lightgrey;`
+
 const StyledImg2 = styled.img`width: 100px;
 height: 100px;
 border: 1px solid lightgrey;`
