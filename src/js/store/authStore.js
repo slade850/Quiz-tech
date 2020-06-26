@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import api from "../utils/api";
+import api, { addAuth } from "../utils/api";
 import { setUserLocalStorage } from "../utils/local-storage";
 
 export const doLogin = (body) => {
@@ -19,6 +19,7 @@ export const doLogin = (body) => {
         console.log("#####response", response.data);
         dispatch({ type: "SET_USER", payload: response.data.user });
         dispatch({ type: "SET_AUTH_MESSAGE", payload: response.data.message });
+        addAuth(response.data.user.token);
         setUserLocalStorage(response.data);
       })
       .catch((err) => {

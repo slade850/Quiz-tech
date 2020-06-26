@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { doLogin } from "../store/authStore";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
+import api from '../utils/api';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const Login = () => {
   const [formLogin, setFormLogin] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [userlogged, setUserLogged] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,7 +31,14 @@ const Login = () => {
       });
   };
 
-  if (logged && !isLoading) return <Redirect to="/" />;
+
+  useEffect(() => {
+      api.get('user/1')
+      .then(res => setUserLogged(true))
+      .catch(err => console.log(err))
+  },[]);
+
+  if (userlogged) return <Redirect to="/themes" />;
 
   return (
     <div className="">

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { getThemes } from "../store/themeStore";
+import { clearUserLocalStorage } from "../utils/local-storage"
 const Themes = () => {
   const dispatch = useDispatch();
   const themes = useSelector((state) => state.themeStore.theme);
@@ -20,6 +21,7 @@ const Themes = () => {
   //   ));
   return (
     <div>
+      <button onClick={() => clearUserLocalStorage()}></button>
       {themes.map((theme, i) => {
         return (
           <div key={i}>
