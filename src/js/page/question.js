@@ -9,6 +9,14 @@ const Questions = () => {
   console.log({id});
   const dispatch = useDispatch();
   const questions = useSelector((state) => state.questionStore.question);
+
+  function checkValid(validity){
+    if(validity){
+      console.log('bravo');
+    } else{
+      console.log('Mauvaise réponse');
+    }
+  }
   useEffect(() => {
     dispatch(getQuestionsByThemes({ id }))
       .then((res) => {
@@ -23,11 +31,16 @@ const Questions = () => {
   //     <div key={index}>{theme.title}</div>
   //   ));
   return (
-    <div>
+    <div className="question-container">
       {questions.map((question, i) => {
         return (
           <div className="question" key={i}>
-            {question.id} {question.title}
+            <div className="question-type">{question.type}</div>
+            <div >{question.id} {question.title}</div>              
+            {question.answers.map((answer, index) => (
+              <div key={index} onClick={()=> checkValid(answer.answer_is_valid)}>{answer.content}</div>
+            ))
+            }
           </div>
         );
       })}

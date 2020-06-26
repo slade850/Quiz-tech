@@ -31,3 +31,25 @@ body {
 .nav {
   text-decoration: none;
 }
+.question-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.question{
+    width: 50vw;
+    height: 30vh;
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px;
+    text-align: center;
+    padding-top: 5vh;
+    font-weight: bold;
+}
+
+.question-type{
+    color:  blue;
+    padding-top: 5vh;
+}
