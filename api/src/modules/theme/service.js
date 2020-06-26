@@ -1,6 +1,5 @@
 import themeQueries from './queries';
 
-
 const themeService = {
  getAll: () => {
   return new Promise((resolve, reject) =>{

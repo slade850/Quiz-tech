@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import api from "../utils/api";
+import api, { addAuth } from "../utils/api";
 import { setUserLocalStorage } from "../utils/local-storage";
 
 export const doLogin = (body) => {
@@ -10,7 +10,7 @@ export const doLogin = (body) => {
   // token -> SET_AUTH_TOKEN
   // LOGIN FINI
   // LOGIN FAILED
-  return dispatch => {
+  return (dispatch) => {
     dispatch({ type: "DOING_LOGIN" });
 
     return api
@@ -19,20 +19,22 @@ export const doLogin = (body) => {
         console.log("#####response", response.data);
         dispatch({ type: "SET_USER", payload: response.data.user });
         dispatch({ type: "SET_AUTH_MESSAGE", payload: response.data.message });
+        addAuth(response.data.user.token);
         setUserLocalStorage(response.data);
       })
       .catch((err) => {
+        console.log("err", err.response.data.message);
         dispatch({
           type: "SET_AUTH_MESSAGE",
           payload: err.response.data.message,
         });
         setUserLocalStorage(response.data);
-      })
-      .finally((res) =>
-        setTimeout(() => {
-          dispatch({ type: "CLEAR_AUTH_MESSAGE" });
-        }, 2000)
-      );
+      });
+    // .finally((res) =>
+    //   setTimeout(() => {
+    //     dispatch({ type: "CLEAR_AUTH_MESSAGE" });
+    //   }, 2000)
+    // );
   };
 };
 
@@ -55,10 +57,10 @@ const user = (state = defaultUserState, action) => {
   return userAction[action.type] || state;
 };
 
-const authMessage = (state = { message: null }, action) => {
+const authMessage = (state = "", action) => {
   const authMessageAction = {
-    SET_AUTH_MESSAGE: { ...state, message: action.payload },
-    CLEAR_AUTH_MESSAGE: { ...state, message: null },
+    SET_AUTH_MESSAGE: action.payload,
+    CLEAR_AUTH_MESSAGE: "",
   };
   return authMessageAction[action.type] || state;
 };
