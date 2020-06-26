@@ -1,4 +1,5 @@
 import apiConfig from "../apiConfig.json";
+// require('dotenv').config({path: ('apiConfig.env')});
 import express from "express";
 import cors from "cors";
 import userRoutes from "./modules/user/routes";

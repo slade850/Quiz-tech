@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { doLogin } from "../store/authStore";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
+import styled from 'styled-components';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const Login = () => {
   if (logged && !isLoading) return <Redirect to="/" />;
 
   return (
-    <div className="">
+    <StyledLogin className="">
       {isLoading ? (
         <h2>loading</h2>
       ) : (
@@ -64,8 +65,33 @@ const Login = () => {
           {message && <span>{message}</span>}
         </form>
       )}
-    </div>
+    </StyledLogin>
   );
 };
 
+
+
+
+const StyledLogin = styled.div`
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border: 2px solid  #9F489B;
+  border-radius: 20px;
+  background: #eee;
+
+  button {
+    background: palevioletred;
+    color: #fff;
+    padding: 10px;
+    margin: 5px;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+`;
 export default Login;
