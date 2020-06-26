@@ -9,11 +9,14 @@ import Theme from "./page/themes";
 import Question from "./page/question";
 const App = () => {
   const logged = useSelector((state) => state.authStore.user.isLogged);
-  let user = getUserLocalStorage();
-  if (user.token != undefined) {
-    useDispatch({ type: "SET_USER_LOGGED", payload: true });
-    addAuth(user.token);
-  }
+  if(getUserLocalStorage() != null){
+    let user = getUserLocalStorage();
+    if (user.token != undefined) {
+      useDispatch({ type: "SET_USER_LOGGED", payload: true });
+      addAuth(user.token);
+    }
+  } 
+
 
   return (
     <Router>
