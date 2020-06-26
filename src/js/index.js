@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.css";
 // components takes precedence over default styles.
 const store = configureStore();
 const MOUNT_NODE = document.getElementById("app");
+store.dispatch({ type: "INIT_APP" })
 
 ReactDOM.render(
   <Provider store={store}>
