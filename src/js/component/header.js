@@ -21,6 +21,7 @@ const Header = () => {
           <li>
             <img src={avatar} />
           </li>
+
         </ul>
       </nav>
     </header>
