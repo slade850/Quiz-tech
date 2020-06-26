@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { getThemes } from "../store/themeStore";
+import { Link, useParams } from "react-router-dom";
 
-
-import { Link } from "react-router-dom";
 const Themes = () => {
+  let { id } = useParams();
   const dispatch = useDispatch();
   const themes = useSelector((state) => state.themeStore.theme);
   useEffect(() => {
@@ -17,10 +16,7 @@ const Themes = () => {
         console.log("error", err);
       });
   }, []);
-  console.log("mes themes", themes);
-  //   const displayThemes = themes.map((theme, index) => (
-  //     <div key={index}>{theme.title}</div>
-  //   ));
+  
   return (
     <div>
       {themes.map((theme, i) => {
