@@ -4,29 +4,6 @@ import { useDispatch } from 'react-redux'
 import logo from "../../../assets/images/home.png";
 import avatar from "../../../assets/images/avatar/default.png";
 
-// const Header = (props) => {
-// 	const dispatch = useDispatch()
-// 	const showModal = () => dispatch({ type: "TOGGLE_IS_MODAL_SHOWING", payload: { type: "login", title: "Login" } })
-    
-// 	return (
-// 		<header>
-// 			<nav>
-// 				<ul>
-// 					<li>
-// 						<Link to="/">Home</Link>
-// 					</li>
-// 					<li>
-// 						<button onClick={showModal}>SignIn</button>
-// 					</li>
-// 					<li>
-// 						<Link to="/themes">Themes</Link>
-// 					</li>
-// 				</ul>
-// 			</nav>
-// 		</header>
-// 	);
-
-
 const Header = props => {
   const dispatch = useDispatch();
   const showModal = () => dispatch({ type: "TOGGLE_IS_MODAL_SHOWING", payload: { type: "login", title: "Login" } })
