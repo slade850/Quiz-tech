@@ -16,7 +16,7 @@ const App = () => {
         <Route path="/themes">
           <Theme />
         </Route>
-        <Route path="/question/theme/1">
+        <Route path="/question/theme/:id">
           <Question />
         </Route>
       </Switch>

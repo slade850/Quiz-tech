@@ -2,10 +2,11 @@ import { combineReducers } from "redux";
 import api from "../utils/api";
 import { setUserLocalStorage } from "../utils/local-storage";
 
-export const getQuestionsByThemes = () => {
+export const getQuestionsByThemes = (id) => {
+
   return (dispatch) => {
     return api
-      .get("question/theme/1")
+      .get("question/theme/"+id.id+"/answers")
       .then((result) => {
         console.log("#####response", result.data.questions);
         dispatch({ type: "SET_QUESTION", payload: result.data });
